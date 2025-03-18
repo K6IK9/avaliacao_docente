@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar avaliacoes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1>Lista de avaliacoes</h1>
+        <ul class="list-group">
+            {% if avaliacoes %}
+                {% for avaliacao in avaliacoes %}
+                <li class="list-group-item">{{ avaliacao }}</li>
+                {% endfor %}
+
+            {% else %}
+                <li class="list-group-item">Nenhuma avaliação cadastrada</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="container mt-4">
+
+        <a href="{% url 'adicionar_avaliacao' %}">
+            <h3>Adicionar avaliacao</h3>
+        </a>
+
+    </div>
+</body>
+
+</html>
