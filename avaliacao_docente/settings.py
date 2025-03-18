@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -84,7 +83,9 @@ DATABASES = {
         'USER': 'neondb_owner',
         'PASSWORD': 'Nws1P5DIdpcY',
         'HOST': 'ep-old-glade-a4wv9tgf-pooler.us-east-1.aws.neon.tech',
-        # 'PORT': '', # não ha porta
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
 
