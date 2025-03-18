@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ka^yt@6fm*d64!pmxpcgut^g$$l3f8*9c^%le75*3)b&r%s87c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -77,11 +78,11 @@ WSGI_APPLICATION = 'avaliacao_docente.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '134679',
-        'HOST': 'localhost',
-        'PORT': '5432', # não ha porta
+        'NAME': 'neondb',
+        'USER': 'neondb_owner',
+        'PASSWORD': 'Nws1P5DIdpcY',
+        'HOST': 'ep-old-glade-a4wv9tgf-pooler.us-east-1.aws.neon.tech',
+        # 'PORT': '', # não ha porta
     }
 }
 
@@ -108,9 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
