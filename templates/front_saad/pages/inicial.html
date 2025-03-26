@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/inicial.css">
+    <title>IF SADD - Opções</title>
+</head>
+<body>
+    <header>
+        <button id="perfil" onclick="temporario()">
+            <img src="../assets/perfil.svg" alt="Perfil">
+        </button>
+    </header>
+    <main>
+        <h1>Seja bem-vindo(a) <span>Aluno Atual Logado</span>!</h1>
+        <section id="opcoes">
+            <h2>Opções Disponíveis</h2>
+            <button onclick="temporario()" id="realizar_avaliacao">Realizar avaliação docente <span>ano/periodo</span></button>
+            <button onclick="temporario()"  id="relatorio_avaliacoes">Visualizar avaliações antigas</button>
+        </section>
+    </main>
+
+    <script>
+
+        function temporario() {
+            window.location.href = "temp.html";
+        }
+
+    </script>
+</body>
+</html>
