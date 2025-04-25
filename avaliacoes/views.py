@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .forms import RegistroForm
+from django.contrib.auth import login
+
 
 from .forms import (
     CursoForm,
@@ -12,6 +15,19 @@ from .forms import (
     PerguntaForm,
 )
 from .models import Curso, Disciplina, Professor, Diario, Aluno, Avaliacao, Pergunta
+
+
+def registrar_usuario(request):
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            usuario = form.save()
+            login(request, usuario)
+            return redirect('dashboard')  # Altere para o nome correto
+    else:
+        form = RegistroForm()
+    
+    return render(request, 'registration/register.html', {'form': form})
 
 
 # Função genérica para listagem de objetos

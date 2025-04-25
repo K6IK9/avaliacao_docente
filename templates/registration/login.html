@@ -5,8 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/registration/loginregistro.css' %}">
     <title>IF SADD - Ínicio</title>
+
 </head>
 
 <body>
@@ -16,24 +17,25 @@
         </aside>
 
         {% if form.errors %}
-            <div class="login-error">   
-                <p><strong>Nome de usuário ou senha incorretos.</strong></p>
-                <p>Por favor, tente novamente.</p>
-            </div>
+        <div class="login-error">
+            <p><strong>Nome de usuário ou senha incorretos.</strong></p>
+            <p>Por favor, tente novamente.</p>
+        </div>
         {% endif %}
 
         <form method="post">
             {% csrf_token %}
             <label for="id_username">
                 <img src="{% static 'assets/perfil.svg' %}" draggable="false" alt="perfil-ico" class="icon">
-                <input type="text" placeholder="Username (por enquanto)" name="username" id="id_username" autocomplete="username"
-                    required>
+                <input type="text" placeholder="Username (por enquanto)" name="username" id="id_username"
+                    autocomplete="username" required>
             </label>
             <label for="password">
                 <img src="{% static 'assets/eye.svg' %}" draggable="false" class="icon" alt="pass-ico">
-                <input type="password" placeholder="Senha" name="password" id="id_password"  autocomplete="current-password" required>
+                <input type="password" placeholder="Senha" name="password" id="id_password"
+                    autocomplete="current-password" required>
             </label>
-            <button type="submit" id="btn-login">Login</button>
+            <button type="submit" id="btn-login" style="bottom: -16%;">Login</button>
 
             <input type="hidden" name="next" value="{{ next }}">
         </form>
@@ -41,7 +43,7 @@
 
     <footer>
         <p>
-            Primeiro Login? Então faça seu <a href="pages/temp.html">cadastro</a>!
+            Primeiro Login? Então faça seu <a href="{% url 'registro' %}">cadastro</a>!
         </p>
     </footer>
 

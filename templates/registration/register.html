@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/registration/loginregistro.css' %}">
+    <title>IF SADD - Registro</title>
+</head>
+
+<body>
+    <main>
+        <aside id="perfil">
+            <img src="{% static 'assets/perfil.svg' %}" draggable="false" alt="perfil-ico">
+        </aside>
+
+        {% if form.errors %}
+        <div class="login-error">
+            <p><strong>Erro no registro:</strong></p>
+            <ul>
+                {% for field in form %}
+                {% for error in field.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <label>
+                <img src="{% static 'assets/perfil.svg' %}" class="icon" alt="user-ico">
+                {{ form.username }}
+            </label>
+            <label>
+                <img src="{% static 'assets/eye.svg' %}" class="icon" alt="pass-ico">
+                {{ form.password1 }}
+            </label>
+            <label>
+                <img src="{% static 'assets/eye.svg' %}" class="icon" alt="pass-ico">
+                {{ form.password2 }}
+            </label>
+
+            <button type="submit" id="btn-login" style="bottom: -12%;">Registrar</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login</a></p>
+    </footer>
+
+    <div class="background">
+        <img src="{% static 'assets/back_left.svg' %}" class="back_lines" alt="left">
+        <img src="{% static 'assets/back_right.svg' %}" class="back_lines" alt="right">
+    </div>
+</body>
+
+</html>

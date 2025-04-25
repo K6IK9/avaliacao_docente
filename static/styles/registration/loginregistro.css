@@ -76,12 +76,34 @@ aside {
 }
 
 
+.login-error {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left: 4px solid #ff0000;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+}
+
+.login-error p {
+    color: var(--cor01);
+    margin-bottom: 5px;
+}
+
+.login-error p:first-child {
+    font-weight: 500;
+}
+
+.login-error strong {
+    color: #ff6b6b;
+}
+
+
+
 form {
     display: flex;
     flex-direction: column;
     gap: 40px;
-
-    position: relative;
 }
 
 form label {
@@ -115,7 +137,7 @@ form label .icon {
 
 form #btn-login {
     position: absolute;
-    bottom: -73%;
+    
     left: 50%;
     transform: translateX(-50%);
 
