@@ -57,6 +57,21 @@ def adicionar_objeto(request, form_class, template_name, redirect_url, success_m
 @login_required
 def index(request):
     context = {
+        "user": request.user,
+    }
+    return render(request, "inicial.html", context)
+
+@login_required
+def perfil(request):
+    context = {
+        "user": request.user,
+    }
+    return render(request, "perfil.html", context)
+
+
+@login_required
+def dashboard(request):
+    context = {
         "total_cursos": Curso.objects.count(),
         "total_disciplinas": Disciplina.objects.count(),
         "total_professores": Professor.objects.count(),

@@ -137,7 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+ 
 
 # LOGIN_URL = "accounts/login/?next=/"  # URL para onde os usuários não autenticados são redirecionados
 
