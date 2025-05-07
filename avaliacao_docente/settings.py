@@ -146,3 +146,5 @@ LOGOUT_REDIRECT_URL = ''  # Redireciona para a página de login após o logout
 # LOGOUT_REDIRECT_URL = "accounts/login/?next=/"  # Redireciona para a página de login após o logoutLOGIN_REDIRECT_URL = '/'  # Redireciona para a página inicial após o login
 
 # LOGIN_REDIRECT_URL = "" 
+
+LOGIN_LOGOUT_REDIRECT_URL = ""  # Redireciona para a página de login após o logout

@@ -1,12 +1,15 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IF SADD - Home</title>
-    <!-- <link rel="stylesheet" href="{% static 'styles/home_estu.css' %}"> -->
+    <title>IF SADD - Avaliações Anteriores</title>
+
+    <!-- <link rel="stylesheet" href="{% static 'styles/aval_ante_estu.css' %}"> -->
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Vidaloka&display=swap');
 
@@ -48,13 +51,16 @@
             background: var(--cor01);
 
             header,
-            main {
+            main,
+            footer {
                 /*border: 1px solid;*/
                 width: 90vw;
                 margin: auto;
             }
 
-            header {
+
+            header,
+            footer {
                 position: absolute;
                 height: 10vh;
             }
@@ -63,19 +69,38 @@
                 top: 5vh;
             }
 
-            /*main {
-        height: 60vh;
-    }*/
+            footer {
+                bottom: 5vh;
+            }
+
+            main {
+                height: 60vh;
+                /*background: var(--cor08);*/
+            }
         }
 
-        /* ------------- HOME -------------------*/
+        /* ---------- AVALIAÇÕES ANTERIORES ---------*/
 
         header {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
 
-            button {
+            button:first-of-type {
+                width: 40px;
+                height: 40px;
+                background: none;
+                border: none;
+                cursor: pointer;
+
+                img {
+                    width: 40px;
+                    display: block;
+                    align-content: center;
+                }
+            }
+
+            button:last-of-type {
                 width: 60px;
                 height: 60px;
                 border-radius: 50%;
@@ -93,6 +118,7 @@
                     width: 30px;
                 }
             }
+
         }
 
         main {
@@ -101,15 +127,14 @@
             align-items: center;
             gap: 25px;
 
-            h1,
-            h1>span {
+            h1 {
                 text-align: center;
                 font-family: var(--font02);
                 font-weight: 500;
                 text-shadow: var(--shadow);
             }
 
-            #opcoes {
+            #anteriores {
                 width: 60vw;
                 padding: 40px;
 
@@ -121,10 +146,6 @@
                 background: var(--cor03);
 
                 border-radius: 20px;
-
-                h2 {
-                    color: var(--cor01);
-                }
 
                 button {
                     width: 100%;
@@ -146,32 +167,36 @@
             }
         }
     </style>
+
 </head>
 
 <body>
     <header>
-        <button id="ifSadd">
-            <img src="{% static 'assets/saad_logo.svg' %}" alt="Sadd Logo">
+        <button id="voltar" onclick="window.history.back();">
+            <img src="{% static 'assets/back_seta.svg' %}" alt="Voltar">
         </button>
         <button id="perfil">
             <img src="{% static 'assets/perfil.svg' %}" alt="Perfil">
         </button>
     </header>
     <main>
-        <h1>Seja bem-vindo(a) <span id="alunoAtual">{{ user.username }}</span> Logado!</h1>
-        <section id="opcoes">
-            <h2>Opções Disponíveis</h2>
-            <button id="realizar_avaliacao">Realizar avaliação docente <span id="anoAtual">ano/periodo</span></button>
-            <button onclick="window.location.href='{% url 'avaliacoes_anteriores' %}'" id="relatorio_avaliacoes">Visualizar avaliações antigas</button>
-            <button onclick="window.location.href='{% url 'dashboard' %}'">Visualizar Dash (Temp) two</button>
+        <h1>Suas Avaliações Anteriores</h1>
+        <section id="anteriores">
+            {% if avaliacoes_recentes %}
+            <button class="anterior_opt">Avaliação 2024/1</button>
+            {% for avaliacao in avaliacoes_recentes %}
+            <button class="anterior_opt">{{ avaliacao }}</button>
+            {% endfor %}
+
+            {% else %}
+            <h2 class="anterior_opt">Você ainda não possui avaliações anteriores.</h2>
+            {% endif %}
         </section>
     </main>
-
 
 
 </body>
 
 </html>
-
 
 {% include "perfil.html" %}

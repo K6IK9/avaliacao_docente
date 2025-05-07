@@ -17,6 +17,15 @@ from .forms import (
 from .models import Curso, Disciplina, Professor, Diario, Aluno, Avaliacao, Pergunta
 
 
+def avaliacoes_anteriores(request):
+    context = {
+        "user": request.user,
+        "avaliacoes_recentes": Avaliacao.objects.all().order_by("-data_inicio")[:5],
+    }
+    return render(request, "avaliacao_anterior.html", context)
+
+
+
 def registrar_usuario(request):
     if request.method == 'POST':
         form = RegistroForm(request.POST)
