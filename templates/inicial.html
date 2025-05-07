@@ -232,13 +232,13 @@
             </aside>
             <label class="infos_modal">
                 <img src="{% static 'assets/perfil.svg' %}" alt="Nome Usuário">
-                <p id="nome_usuario_modal">{{ user.username }}</p>
+                <p id="nome_usuario_modal">Nome: {{ user.username }}</p>
             </label>
             <label class="infos_modal">
                 <img src="{% static 'assets/perfil.svg' %}" alt="Matrícula">
-                <p id="matricula_usuario_modal">Matrícula do usuário</p>
+                <p id="matricula_usuario_modal">Numero de Matricula</p>
             </label>
-            <button id="logout_modal">Sair</button>
+            <a href="{% url 'logout' %}"><button id="logout_modal">Sair</button></a>
         </section>
     </div>
 </div>
@@ -262,8 +262,7 @@
         border-radius: 22px;
         box-shadow: 0 8px 32px rgba(55, 111, 108, 0.18);
         padding: 0 0 32px 0;
-        min-width: 450px;
-        max-width: 150vw;
+        width: 40%;
         min-height: 350px;
         position: relative;
         display: flex;
@@ -302,7 +301,7 @@
     }
 
     #dados_modal {
-        width: 320px;
+        width: 560px;
         max-width: 80vw;
         display: flex;
         flex-direction: column;
