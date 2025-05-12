@@ -32,7 +32,7 @@ def registrar_usuario(request):
         if form.is_valid():
             usuario = form.save()
             login(request, usuario)
-            return redirect('dashboard')  # Altere para o nome correto
+            return redirect('dashboard')  # Altere para o nome corretoini
     else:
         form = RegistroForm()
     
